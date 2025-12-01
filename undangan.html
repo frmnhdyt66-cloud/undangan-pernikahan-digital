@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Undangan Pernikahan Umam & Munawwarah</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fffaf7;
+      color: #4a4a4a;
+      padding: 20px;
+      max-width: 420px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    /* Mobile Only */
+    @media (min-width: 769px) {
+      body::before {
+        content: "Website ini hanya bisa diakses di perangkat mobile.";
+        font-size: 24px;
+        text-align: center;
+        padding: 20px;
+        background: rgba(0,0,0,0.9);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+      }
+      .content {
+        display: none !important;
+      }
+    }
+
+    .content {
+      padding: 20px 15px;
+    }
+
+    /* Header Section */
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+    }
+
+    .header h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #b39ddb;
+      margin: 10px 0;
+    }
+
+    .header p {
+      font-size: 0.9rem;
+      color: #666;
+      margin: 5px 0;
+    }
+
+    .btn-primary {
+      background: #b39ddb;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: #9575cd;
+    }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #e0d0e0, transparent);
+      margin: 30px 0;
+      position: relative;
+    }
+
+    .divider::before {
+      content: "♡";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      color: #b39ddb;
+    }
+
+    /* Countdown Section */
+    .countdown {
+      text-align: center;
+      padding: 20px 0;
+      background: #fafafa;
+      border-radius: 15px;
+      margin: 20px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .countdown-title {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: #888;
+    }
+
+    .countdown-numbers {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .countdown-item {
+      text-align: center;
+    }
+
+    .countdown-value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #b39ddb;
+    }
+
+    .countdown-label {
+      font-size: 0.8rem;
+      color: #999;
+    }
+
+    /* Bride & Groom Section */
+    .profiles {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .profile-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #f8e8f0;
+      margin: 0 auto 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .profile-name {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      color: #b39ddb;
+      margin: 10px 0;
+    }
+
+    .profile-title {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .profile-desc {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .profile-btn {
+      background: #b39ddb;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .profile-btn:hover {
+      background: #9575cd;
+    }
+
+    /* Footer Watermark */
+    .footer {
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 0.9rem;
+      color: #b39ddb;
+      margin-top: 40px;
+      opacity: 0.7;
+    }
+
+    .profiles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    }
+
+    .ampersand {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #b39ddb;
+    line-height: 1;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Flower Decorations */
+    .flower-top {
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 150px;
+      opacity: 0.7;
+      z-index: -1;
+    }
+
+    .flower-bottom {
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 150px;
+      opacity: 0.7;
+      z-index: -1;
+    }
+
+        /* Wedding Event */
+   .wedding-event {
+  margin: 30px 0;
+}
+
+.event-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background: #f8f8f8;
+  height: 550px; /* ← SESUAIKAN DENGAN UKURAN YANG DIINGINKAN */
+}
+
+.event-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.event-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.event-overlay h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.event-detail {
+  margin: 15px 0;
+  text-align: center;
+  width: 90%; /* agar tidak terlalu melebar */
+}
+
+.event-detail h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.event-detail p {
+  font-size: 0.9rem;
+  margin: 3px 0;
+  color: #eee;
+}
+
+.location {
+  font-size: 0.85rem;
+  margin: 10px 0;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+
+.btn-location {
+  background: #b39ddb;
+  color: white;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.btn-location:hover {
+  background: #9575cd;
+}
+    /* RSVP Section */
+    .rsvp-section {
+    padding: 20px 0;
+    }
+
+    .section-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    color: #b39ddb;
+    text-align: center;
+    margin-bottom: 5px;
+    }
+
+    .section-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 20px;
+    }
+
+    .rsvp-stats {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    }
+
+    .rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    }
+
+    .rsvp-form input,
+    .rsvp-form select,
+    .rsvp-form textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    background: #fafafa;
+    }
+
+    .rsvp-form textarea {
+    resize: none;
+    }
+
+    .btn-submit {
+    background: #b39ddb;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+
+    .btn-submit:hover {
+    background: #9575cd;
+    }
+
+    .guest-comment {
+    background: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .comment-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    }
+
+    .comment-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    }
+
+    .comment-header span {
+    font-weight: bold;
+    color: #b39ddb;
+    }
+
+    .comment-text {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 5px;
+    }
+
+    .comment-time {
+    font-size: 0.8rem;
+    color: #999;
+    }
+
+    /* Wedding Gift */
+    .gift-section {
+    padding: 20px 0;
+    text-align: center;
+    }
+
+    .section-desc {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 15px 0;
+    }
+
+    .btn-gift {
+    background: #b39ddb;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    }
+
+    .btn-gift:hover {
+    background: #9575cd;
+    }
+
+    /* Flower Decorations (Optional) */
+    .flower-top {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 150px;
+    opacity: 0.7;
+    z-index: -1;
+    }
+
+    .flower-bottom {
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 150px;
+    opacity: 0.7;
+    z-index: -1;
+    }
+
+    .audio-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.9);
+    color: #b39ddb;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .audio-btn.muted {
+    color: #ccc;
+  }
+
+    /* Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+  </style>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="content">
+
+    <!-- Header Section -->
+    <div class="header">
+      <img src="foto.jpeg" alt="Alexa & Hanan">
+      <h1>Umam & Munawwarah</h1>
+      <p>Rabu, 10 Desembe 2025</p>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Countdown Section -->
+   <div class="countdown">
+  <div class="countdown-title">Save The Date</div>
+  <div class="countdown-numbers">
+    <div class="countdown-item">
+      <div class="countdown-value" id="days">00</div>
+      <div class="countdown-label">Hari</div>
+    </div>
+    <div class="countdown-item">
+      <div class="countdown-value" id="hours">00</div>
+      <div class="countdown-label">Jam</div>
+    </div>
+    <div class="countdown-item">
+      <div class="countdown-value" id="minutes">00</div>
+      <div class="countdown-label">Menit</div>
+    </div>
+    <div class="countdown-item">
+      <div class="countdown-value" id="seconds">00</div>
+      <div class="countdown-label">Detik</div>
+    </div>
+  </div>
+</div>
+
+    <!-- Divider -->
+   <!-- Bride & Groom Profiles -->
+    <div class="profiles">
+    <!-- Bride -->
+    <div class="profile-card">
+        <h2 class="profile-name">Safikatul Munawwarah</h2>
+        <div class="profile-title">Putri dari Bapak Rahmad</div>
+        <p class="profile-desc">“Saya percaya cinta sejati ada, dan aku menemukannya dalam dirimu.”</p>
+    </div>
+
+    <!-- Ampersand di tengah -->
+    <div class="ampersand"> & </div>
+
+    <!-- Groom -->
+    <div class="profile-card">
+        <h2 class="profile-name">Khairul Umam</h2>
+        <div class="profile-title">Putra dari Bapak Alm. Abd Rahman</div>
+        <p class="profile-desc">“Kamu adalah alasan aku bangun setiap pagi dengan senyum.”</p>
+    </div>
+    </div>
+
+
+        <!-- Wedding Event Section -->
+    <div class="wedding-event">
+        <div class="event-card">
+            <img src="foto.jpeg" alt="Wedding Event" class="event-img">
+            <div class="event-overlay">
+            <h2>Wedding Event</h2>
+            <div class="event-detail">
+                <h3>Akad Nikah</h3>
+                <p>Minggu, 10 Desember 2025</p>
+                <p>Pukul 08.00 - 11.00 WIB</p>
+            </div>
+
+            <div class="event-detail">
+                <h3>Resepsi</h3>
+                <p>Minggu, 10 Desember 2025</p>
+                <p>Pukul 11.00 - Selesai</p>
+                <div class="location">Lokasi :
+                Dsn temor dajah desa: bangsereh kec: batu marmar kab: pamekasan
+                </div>
+                <a href="#" class="btn-location">Lihat Lokasi</a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- RSVP Section -->
+   <div class="rsvp-section">
+  <h2 class="section-title">RSVP</h2>
+  <p class="section-subtitle">Buku Tamu dan Kolom Ucapan</p>
+
+  <div class="rsvp-stats">
+    <i class="fa-solid fa-comment"></i> <span id="comment-count">1</span> Ucapan
+  </div>
+
+  <form class="rsvp-form" id="rsvpForm">
+    <input type="text" id="nameInput" placeholder="Nama Anda" required>
+    <select id="attendanceSelect" required>
+      <option value="" disabled selected>Konfirmasi Kehadiran</option>
+      <option value="hadir">Hadir</option>
+      <option value="tidak-hadir">Tidak Hadir</option>
+    </select>
+    <textarea id="messageInput" placeholder="Tulis ucapan" rows="4" required></textarea>
+    <button type="submit" class="btn-submit">Kirim</button>
+  </form>
+
+  <!-- Container untuk komentar baru -->
+  <div id="comments-container">
+    <!-- Komentar awal tetap di sini -->
+    <div class="guest-comment">
+      <div class="comment-header">
+        <img src="https://ui-avatars.com/api/?name=Aboi+Arini&size=40" alt="Avatar">
+        <span>aboy & Arini 💖</span>
+      </div>
+      <p class="comment-text">Sakinah Mawaddah Warohmah</p>
+      <p class="comment-time">3 minggu, 3 hari yang lalu</p>
+    </div>
+  </div>
+</div>
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Wedding Gift Section -->
+    <div class="gift-section">
+    <h2 class="section-title">Wedding Gift</h2>
+    <p class="section-desc">
+        Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi gift.
+    </p>
+    <button class="btn-gift"><i class="fa-solid fa-gift"></i> Kirim Gift</button>
+    </div>
+
+    <!-- Audio Element (hidden) -->
+<audio id="bgMusic" loop>
+  <source src="tulus.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Tombol Mute/Unmute -->
+<div id="audioBtn" class="audio-btn">
+  <i class="fa-solid fa-volume-high"></i>
+</div>
+
+
+  </div>
+
+  <!-- Flower Decorations (Optional) -->
+  <img class="flower-top" src="bunga.gif" alt="Flower">
+  <img class="flower-bottom" src="bunga.gif" alt="Flower">
+
+<script>
+  // Elemen
+  const audio = document.getElementById('bgMusic');
+  const audioBtn = document.getElementById('audioBtn');
+  const icon = audioBtn.querySelector('i');
+
+  // Cek apakah harus putar musik
+  if (sessionStorage.getItem('playMusic') === 'true') {
+    // Coba putar musik
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Jika gagal (jarang terjadi), abaikan
+        console.warn("Gagal memutar musik otomatis.");
+      });
+    }
+  }
+
+  // Toggle mute/unmute
+  audioBtn.addEventListener('click', function() {
+    if (audio.muted) {
+      audio.muted = false;
+      icon.className = 'fa-solid fa-volume-high';
+      audioBtn.classList.remove('muted');
+    } else {
+      audio.muted = true;
+      icon.className = 'fa-solid fa-volume-xmark';
+      audioBtn.classList.add('muted');
+    }
+  });
+
+  // Opsional: Simpan status mute di sessionStorage agar tetap saat refresh
+  // (Anda bisa tambahkan jika perlu)
+</script>
+
+<script>
+  let commentCount = 1; // Mulai dari 1 (karena sudah ada 1 komentar awal)
+
+  document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Cegah reload halaman
+
+    // Ambil nilai dari form
+    const name = document.getElementById('nameInput').value.trim();
+    const attendance = document.getElementById('attendanceSelect').value;
+    const message = document.getElementById('messageInput').value.trim();
+
+    if (!name || !message) return;
+
+    // Buat avatar dinamis
+    const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&size=40&background=b39ddb&color=fff`;
+
+    // Format waktu "baru saja"
+    const timeAgo = "baru saja";
+
+    // Buat elemen komentar baru
+    const commentDiv = document.createElement('div');
+    commentDiv.className = 'guest-comment';
+    commentDiv.innerHTML = `
+      <div class="comment-header">
+        <img src="${avatarUrl}" alt="Avatar">
+        <span>${name} ${attendance === 'hadir' ? '✅' : '❌'}</span>
+      </div>
+      <p class="comment-text">${message}</p>
+      <p class="comment-time">${timeAgo}</p>
+    `;
+
+    // Tambahkan komentar baru DI ATAS komentar lama (opsional: bisa juga di bawah)
+    const container = document.getElementById('comments-container');
+    container.insertBefore(commentDiv, container.firstChild);
+
+    // Perbarui jumlah ucapan
+    commentCount++;
+    document.getElementById('comment-count').textContent = commentCount;
+
+    // Reset form
+    this.reset();
+  });
+</script>
+
+
+
+  <script>
+  // Tentukan tanggal pernikahan: 10 Desember 2025
+  const weddingDate = new Date("December 10, 2025 00:00:00").getTime();
+
+  // Fungsi update countdown setiap detik
+  const countdownInterval = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    // Hitung hari, jam, menit, detik
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Tampilkan hasil
+    document.getElementById("days").textContent = String(days).padStart(2, '0');
+    document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+
+    // Jika sudah lewat tanggal pernikahan
+    if (distance < 0) {
+      clearInterval(countdownInterval);
+      document.querySelector(".countdown").innerHTML = "<div class='countdown-title'>Acara Telah Berlangsung!</div>";
+    }
+  }, 1000);
+</script>
+
+</body>
+</html>

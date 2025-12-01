@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Undangan Pernikahan Umam & Munawwarah</title>
+  
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #000;
+      color: white;
+      height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Mobile Only - Max width 768px */
+    @media (min-width: 769px) {
+      body::before {
+        content: "Website ini hanya bisa diakses di perangkat mobile.";
+        font-size: 24px;
+        text-align: center;
+        padding: 20px;
+        background: rgba(0,0,0,0.9);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+      }
+      .container {
+        display: none !important;
+      }
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('foto.jpeg') no-repeat center center;
+      background-size: cover;
+      filter: brightness(0.4);
+      z-index: -1;
+    }
+
+    .title {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .names {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.8rem;
+      margin: 15px 0;
+      line-height: 1.2;
+    }
+
+    .date {
+      font-size: 1.1rem;
+      margin: 20px 0;
+    }
+
+    .note {
+      font-size: 0.9rem;
+      margin: 15px 0;
+      opacity: 0.9;
+    }
+
+    .btn {
+      background: #b39ddb;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .btn:hover {
+      background: #9575cd;
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Dancing Script', cursive;
+      font-size: 1rem;
+      opacity: 0.7;
+    }
+
+    /* Icon Envelope */
+    .btn i {
+      font-size: 1.2rem;
+    }
+
+    /* Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+  </style>
+  <!-- Font Awesome for envelope icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <body>
+  <div class="background"></div>
+
+  <div class="container">
+    <div class="title">The Wedding Of</div>
+    <div class="names">Umam & Munawwarah</div>
+    <div class="date">Rabu, 10 Desember 2025<br>Akad jam 09:00 sd selesai<br>Resepsi 01:00</div>
+    <div class="note">Kpd Bpk/Ibu/Saudara/i</div>
+    
+    <!-- Tombol redirect dengan sinyal playMusic -->
+    <a href="#" id="openBtn" class="btn">
+      <i class="fa-solid fa-envelope"></i> Buka Undangan
+    </a>
+  </div>
+
+  <script>
+    document.getElementById('openBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Beri tahu halaman berikutnya untuk putar musik
+      sessionStorage.setItem('playMusic', 'true');
+      
+      // Redirect
+      window.location.href = 'undangan.html';
+    });
+  </script>
+</body>
+</html>
